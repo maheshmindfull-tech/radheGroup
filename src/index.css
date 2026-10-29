@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem;
+  --font-josefin: "Josefin Sans", sans-serif;
+  --animate-spin-slow: spin-slow 12s linear infinite;
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+* {
+  font-optical-sizing: auto;
+  font-family: "Josefin Sans", sans-serif;
+}
