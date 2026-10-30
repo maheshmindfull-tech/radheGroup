@@ -67,12 +67,14 @@ export default function Contact() {
     setStatus({ type: "", text: "" });
     try {
       const projectName = enquiryProjects.find((project) => project.slug === form.project)?.name || form.project;
-      await Promise.all([
+      const [saved, mailed] = await Promise.allSettled([
         submitEnquiry(),
         sendEnquiryEmail({
           subject: `Website enquiry - ${projectName}`,
           name: form.name.trim(),
           email: form.email.trim(),
+          confirmation:
+            "Hi {name}, thank you for contacting Radhe Group. We have received your enquiry and our team will get back to you shortly.|We received your enquiry",
           fields: {
             Mobile: form.number,
             Project: projectName,
@@ -83,7 +85,14 @@ export default function Contact() {
           },
         }),
       ]);
-      setStatus({ type: "success", text: "Message sent successfully!" });
+      if (saved.status === "rejected") throw saved.reason;
+      setStatus({
+        type: "success",
+        text:
+          mailed.status === "fulfilled"
+            ? "Message sent successfully! A confirmation email is on its way."
+            : "Message sent successfully!",
+      });
       setForm(emptyForm);
       setPossession(possessionOptions[0]);
     } catch (error) {

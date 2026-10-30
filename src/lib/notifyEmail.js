@@ -1,10 +1,11 @@
 const inbox = "radhegroup30@gmail.com";
 
-export async function sendEnquiryEmail({ subject, name, email, fields }) {
+export async function sendEnquiryEmail({ subject, name, email, fields, confirmation }) {
   const body = new FormData();
   body.append("name", name || "Website visitor");
   body.append("email", email || inbox);
   body.append("_subject", subject || "New website enquiry");
+  if (confirmation) body.append("_auto-response", confirmation);
   Object.entries(fields || {}).forEach(([label, value]) => {
     body.append(label, value == null || value === "" ? "Not provided" : String(value));
   });

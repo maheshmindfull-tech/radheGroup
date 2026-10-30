@@ -405,7 +405,7 @@ function FloorPlans({ project }) {
                 if (state === "sending") return;
                 setState("sending");
                 try {
-                  await Promise.all([
+                  const [saved] = await Promise.allSettled([
                     submitEnquiry(),
                     sendEnquiryEmail({
                       subject: `Brochure enquiry - ${project.name || slug}`,
@@ -419,6 +419,7 @@ function FloorPlans({ project }) {
                       },
                     }),
                   ]);
+                  if (saved.status === "rejected") throw saved.reason;
                   setState("done");
                   download();
                   setTimeout(() => {

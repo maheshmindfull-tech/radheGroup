@@ -52,7 +52,7 @@ export async function pushEnquiry({
   if (!apiKey) throw new Error("This project is not set up in the CRM yet.");
 
   const payload = {
-    DataFrom: "E",
+    DataFrom: "T",
     ApiKey: apiKey,
     EnquiryDate: new Date().toISOString().split("T")[0],
     FirstName: firstName.trim().slice(0, 50),
@@ -80,7 +80,20 @@ export async function pushEnquiry({
   });
   const data = await response.json().catch(() => null);
   if (!response.ok || !data || data.status !== "success") {
-    throw new Error(data?.message || "Failed to submit. Please try again.");
+    throw new Error(crmErrorMessage(data));
   }
   return data;
+}
+
+function crmErrorMessage(data) {
+  const text = [data?.status, data?.message]
+    .map((value) => String(value || "").trim())
+    .find((value) => value && !/^failed\.*$/i.test(value));
+  const duplicate = text?.match(/same mobile number already exists(?: \(Enquiry ID:\s*(\d+))?/i);
+  if (duplicate) {
+    return duplicate[1]
+      ? `This mobile number is already in the CRM (Enquiry ${duplicate[1]}).`
+      : "This mobile number is already in the CRM.";
+  }
+  return text || "Failed to submit. Please try again.";
 }
