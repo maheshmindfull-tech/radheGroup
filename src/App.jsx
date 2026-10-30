@@ -1,18 +1,16 @@
 import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ProjectsPage from "./pages/Projects";
-
-const pages = {
-  "/gallery": "Gallery",
-  "/blogs": "Blogs",
-  "/contact": "Contact",
-  "/terms": "Terms of Use",
-  "/privacy": "Privacy Policy",
-};
+import Gallery from "./pages/Gallery";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import ProjectDetails from "./pages/ProjectDetails";
+import ProjectDefault from "./pages/ProjectDefault";
+import BlogDetails from "./pages/BlogDetails";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,19 +18,6 @@ function ScrollToTop() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [pathname]);
   return null;
-}
-
-function SimplePage({ title }) {
-  return (
-    <section className="min-h-[60vh] px-6 pt-40 pb-24">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-[#E7720E] text-[40px] md:text-[56px] font-normal leading-none">{title}</h1>
-        <p className="mt-6 text-lg text-gray-700 max-w-2xl">
-          This page is part of the Radhe Group site. The homepage is ready, and this section can be filled in next.
-        </p>
-      </div>
-    </section>
-  );
 }
 
 export default function App() {
@@ -44,10 +29,13 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<ProjectsPage />} />
-        {Object.entries(pages).map(([path, title]) => (
-          <Route key={path} path={path} element={<SimplePage title={title} />} />
-        ))}
-        <Route path="/project/:slug" element={<SimplePage title="Project" />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/project/:slug" element={<ProjectDetails />} />
+        <Route path="/default-project" element={<ProjectDefault />} />
+        <Route path="/blogdetails" element={<BlogDetails />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
     </div>

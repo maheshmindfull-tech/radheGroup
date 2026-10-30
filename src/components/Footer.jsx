@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { footerExplore, footerProjects } from "../data";
+import { sendEnquiryEmail } from "../lib/notifyEmail";
 
 function Icon({ children }) {
   return (
@@ -50,6 +52,31 @@ function Heading({ children }) {
 }
 
 export default function Footer() {
+  const [newsletter, setNewsletter] = useState("");
+  const [newsletterNote, setNewsletterNote] = useState("");
+
+  const subscribe = async (event) => {
+    event.preventDefault();
+    const email = newsletter.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setNewsletterNote("Enter a valid email address");
+      return;
+    }
+    setNewsletterNote("");
+    try {
+      await sendEnquiryEmail({
+        subject: "Newsletter signup",
+        name: "Website visitor",
+        email,
+        fields: { Form: "Footer newsletter" },
+      });
+      setNewsletter("");
+      setNewsletterNote("Subscribed");
+    } catch (error) {
+      setNewsletterNote(error.message || "Could not subscribe. Please try again.");
+    }
+  };
+
   return (
     <footer className="bg-[#181200] text-[#a19e95] py-16 px-8 md:px-20 font-sans">
       <div className="max-w-7xl mx-auto">
@@ -119,9 +146,14 @@ export default function Footer() {
                 <Icon>
                   <path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" />
                 </Icon>
-                <a href="mailto:shrutibuildtechsales@gmail.com" className="hover:text-white">
-                  shrutibuildtechsales@gmail.com
-                </a>
+                <div className="space-y-1">
+                  <a href="mailto:shrutibuildtechsales@gmail.com" className="block hover:text-white">
+                    shrutibuildtechsales@gmail.com
+                  </a>
+                  <a href="mailto:radhegroup30@gmail.com" className="block hover:text-white">
+                    radhegroup30@gmail.com
+                  </a>
+                </div>
               </div>
               <div className="flex items-start space-x-3">
                 <span className="mt-1 flex-shrink-0">
@@ -132,13 +164,12 @@ export default function Footer() {
                 <p>S. No. 185P, Near Redcliffe School, Wadmukhwadi, Charholi Budruk, Pune-412105</p>
               </div>
             </div>
-            <form
-              className="flex items-stretch rounded-full overflow-hidden border border-gray-300"
-              onSubmit={(event) => event.preventDefault()}
-            >
+            <form className="flex items-stretch rounded-full overflow-hidden border border-gray-300" onSubmit={subscribe}>
               <input
                 type="email"
                 placeholder="Your Email Address"
+                value={newsletter}
+                onChange={(event) => setNewsletter(event.target.value)}
                 className="flex-1 bg-white py-3 px-5 text-gray-700 placeholder-gray-400 outline-none text-sm"
               />
               <button className="bg-[#997708] text-white px-4 flex items-center justify-center transition-colors" aria-label="Subscribe">
@@ -147,17 +178,18 @@ export default function Footer() {
                 </svg>
               </button>
             </form>
+            {newsletterNote && <p className="text-xs mt-2 text-white">{newsletterNote}</p>}
           </div>
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs tracking-wider">
           <p>© All Copyright 2025 by Mindfull Creative studio</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/terms" className="hover:text-white transition-colors">
+            <Link to="#" className="hover:text-white transition-colors">
               Terms of Use
             </Link>
             <span className="text-gray-700">|</span>
-            <Link to="/privacy" className="hover:text-white transition-colors">
+            <Link to="#" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
           </div>
