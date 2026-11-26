@@ -46,7 +46,7 @@ function Counter({ target, suffix }) {
 const cards = [
   { target: 18, suffix: "+", label: "Completed Projects", tone: "muted" },
   { target: 1000, suffix: "+", label: "Happy Customers", tone: "orange" },
-  { target: 24, suffix: "+", label: "Years Experience", tone: "muted" },
+  { target: 20, suffix: "+", label: "Years Experience", tone: "muted" },
   { target: 1.5, suffix: "M+", label: "Sq.Ft. Total area Developed", tone: "orange" },
 ];
 

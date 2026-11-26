@@ -52,18 +52,20 @@ export async function pushEnquiry({
   if (!apiKey) throw new Error("This project is not set up in the CRM yet.");
 
   const payload = {
-    DataFrom: "T",
+    DataFrom: "E",
     ApiKey: apiKey,
     EnquiryDate: new Date().toISOString().split("T")[0],
     FirstName: firstName.trim().slice(0, 50),
     MobileNo: mobile,
-    Email: email.trim(),
     Source: "Digitals",
     SourceDetail: "WebSite",
     Country: "India",
     State: "Maharashtra",
     City: "Pune",
   };
+
+  const cleanEmail = String(email || "").trim();
+  if (cleanEmail) payload.Email = cleanEmail;
 
   const mappedPreference = crmPreference(preference);
   const mappedPossession = crmPossession(possession);

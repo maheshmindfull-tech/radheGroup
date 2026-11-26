@@ -32,8 +32,7 @@ export default function Contact() {
     else if (form.name.trim().length > 50) next.name = "Name must be 50 characters or less";
     if (!form.number.trim()) next.number = "Number is required";
     else if (!/^[0-9]{10}$/.test(form.number)) next.number = "Enter valid 10-digit number";
-    if (!form.email.trim()) next.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = "Enter a valid email address";
+    if (form.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = "Enter a valid email address";
     if (!form.project) next.project = "Project is required";
     return next;
   };
@@ -67,15 +66,18 @@ export default function Contact() {
     setStatus({ type: "", text: "" });
     try {
       const projectName = enquiryProjects.find((project) => project.slug === form.project)?.name || form.project;
+      const visitorEmail = form.email.trim();
       const [saved, mailed] = await Promise.allSettled([
         submitEnquiry(),
         sendEnquiryEmail({
           subject: `Website enquiry - ${projectName}`,
           name: form.name.trim(),
-          email: form.email.trim(),
-          confirmation:
-            "Hi {name}, thank you for contacting Radhe Group. We have received your enquiry and our team will get back to you shortly.|We received your enquiry",
+          email: visitorEmail,
+          confirmation: visitorEmail
+            ? "Hi {name}, thank you for contacting Radhe Group. We have received your enquiry and our team will get back to you shortly.|We received your enquiry"
+            : undefined,
           fields: {
+            Email: visitorEmail || "Not provided",
             Mobile: form.number,
             Project: projectName,
             Plan: form.plan || "Not selected",
@@ -89,7 +91,7 @@ export default function Contact() {
       setStatus({
         type: "success",
         text:
-          mailed.status === "fulfilled"
+          visitorEmail && mailed.status === "fulfilled"
             ? "Message sent successfully! A confirmation email is on its way."
             : "Message sent successfully!",
       });
@@ -143,7 +145,7 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-[#2D2D2D] text-md font-semibold ml-1">Email Address</label>
+                  <label className="text-[#2D2D2D] text-md font-semibold ml-1">Email Address (Optional)</label>
                   <input
                     type="email"
                     placeholder="Hello@email"

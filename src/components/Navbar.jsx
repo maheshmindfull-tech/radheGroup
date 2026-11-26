@@ -6,16 +6,16 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const linkClass = ({ isActive }) =>
-    `whitespace-nowrap text-sm font-medium transition lg:text-base ${isActive ? "text-[#E7720E]" : "text-gray-800 hover:text-[#E7720E]"}`;
+    `whitespace-nowrap text-sm font-medium transition ${isActive ? "text-[#E7720E]" : "text-gray-800 hover:text-[#E7720E]"}`;
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-3 py-3 sm:px-4 md:py-4 lg:py-6">
-      <div className="max-w-7xl mx-auto bg-white backdrop-blur-md rounded-full flex items-center justify-between gap-2 px-3 py-1.5 sm:px-4 md:gap-3 md:px-5 md:py-1.5 lg:px-8 lg:py-2.5 shadow-lg">
+    <nav className="fixed top-0 left-0 w-full z-50 px-3 py-2 sm:px-4 md:py-3 lg:py-4">
+      <div className="max-w-7xl mx-auto bg-white backdrop-blur-md rounded-full flex items-center justify-between gap-2 px-3 py-1 sm:px-4 md:gap-3 md:px-5 lg:px-6 lg:py-1.5 shadow-lg">
         <NavLink to="/" className="flex shrink-0 items-center">
           <img
             src="/assets/logo-CobGksDi.png"
             alt="Radhe Group"
-            className="h-11 w-auto object-contain md:h-12 lg:h-16 xl:h-20"
+            className="h-9 w-auto object-contain md:h-10 lg:h-12 xl:h-14"
           />
         </NavLink>
 
@@ -28,7 +28,7 @@ export default function Navbar() {
         </div>
 
         <NavLink to="/contact" className="hidden md:block shrink-0">
-          <button className="whitespace-nowrap bg-[#E7720E] hover:bg-[#e06600] text-white py-2 px-4 rounded-full uppercase text-xs tracking-wide transition duration-300 cursor-pointer lg:py-3 lg:px-8 lg:text-sm lg:tracking-wider">
+          <button className="whitespace-nowrap bg-[#E7720E] hover:bg-[#e06600] text-white py-1.5 px-3.5 rounded-full uppercase text-xs tracking-wide transition duration-300 cursor-pointer lg:py-2 lg:px-6 lg:text-sm lg:tracking-wider">
             Contact Us
           </button>
         </NavLink>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Cta from "../components/Cta";
 
 const beliefs = [
@@ -75,7 +75,7 @@ const milestones = [
   { year: 2013, projectName: "SANSKRUTI APARTMENT", subtitle: "- Chinchwad", image: milestoneImage, text: olderText },
   { year: 2013, projectName: "Umiya Residency", subtitle: "- Bhosari", image: milestoneImage, text: olderText },
   { year: 2013, projectName: "Kesar Garden", subtitle: "- Bhosari", image: milestoneImage, text: olderText },
-  { year: 2012, projectName: "Sanskruti", subtitle: "- Bhosari", image: milestoneImage, text: olderText },
+  { year: 2012, projectName: "Sanskriti", subtitle: "- Bhosari", image: milestoneImage, text: olderText },
   { year: 2011, projectName: "Regency Heights", subtitle: "- Chikhli", image: milestoneImage, text: olderText },
   { year: 2010, projectName: "Indrayani Garden", subtitle: "- Indrayaninagar", image: milestoneImage, text: olderText },
   { year: 2010, projectName: "Satyam Residency", subtitle: "- Chikhli", image: milestoneImage, text: olderText },
@@ -189,8 +189,79 @@ function VisionMission() {
 
 function Milestones() {
   const [index, setIndex] = useState(0);
+  const [dotTop, setDotTop] = useState(28);
+  const railRef = useRef(null);
+  const listRef = useRef(null);
+  const dragging = useRef(false);
   const current = milestones[index];
-  const rest = [...milestones.slice(index + 1), ...milestones.slice(0, index)];
+
+  const placeDot = (selected = index) => {
+    const rail = railRef.current;
+    const list = listRef.current;
+    if (!rail || !list) return;
+    const row = list.querySelector(`[data-milestone="${selected}"]`);
+    if (!row) return;
+    const railBox = rail.getBoundingClientRect();
+    const rowBox = row.getBoundingClientRect();
+    setDotTop(rowBox.top + rowBox.height / 2 - railBox.top);
+  };
+
+  useLayoutEffect(() => {
+    if (!dragging.current) placeDot();
+  }, [index]);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (!dragging.current) placeDot();
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [index]);
+
+  const pickFromPointer = (clientY) => {
+    const list = listRef.current;
+    if (!list) return;
+    const rows = [...list.querySelectorAll("[data-milestone]")];
+    let next = 0;
+    let best = Infinity;
+    rows.forEach((row) => {
+      const box = row.getBoundingClientRect();
+      const distance = Math.abs(clientY - (box.top + box.height / 2));
+      if (distance < best) {
+        best = distance;
+        next = Number(row.dataset.milestone);
+      }
+    });
+    setIndex(next);
+  };
+
+  const startDrag = (event) => {
+    if (event.button !== undefined && event.button !== 0) return;
+    event.preventDefault();
+    dragging.current = true;
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      /* A real pointer can be captured; the move handler still follows the drag. */
+    }
+    pickFromPointer(event.clientY);
+  };
+
+  const moveDrag = (event) => {
+    if (!dragging.current) return;
+    const rail = railRef.current;
+    if (!rail) return;
+    const railBox = rail.getBoundingClientRect();
+    const top = event.clientY - railBox.top;
+    setDotTop(Math.min(railBox.height - 10, Math.max(10, top)));
+    pickFromPointer(event.clientY);
+  };
+
+  const endDrag = () => {
+    if (!dragging.current) return;
+    dragging.current = false;
+    placeDot();
+  };
 
   return (
     <section className="bg-[#1f1f1f] px-4 py-10 sm:px-8 md:px-16 lg:px-28">
@@ -202,22 +273,54 @@ function Milestones() {
 
         <div className="mt-6 flex flex-col gap-6 lg:mt-8 lg:grid lg:grid-cols-[260px_1fr] lg:gap-14">
           <div className="flex gap-5">
-            <div className="relative hidden w-5 shrink-0 lg:block">
-              <div className="absolute left-1/2 top-8 h-[calc(100%-16px)] w-[3px] -translate-x-1/2 rounded-full bg-white/35" />
-              <span className="absolute left-1/2 top-7 h-5 w-5 -translate-x-1/2 rounded-full border-2 border-white bg-[#E7720E]" />
+            <div ref={railRef} className="relative w-5 shrink-0 select-none">
+              <div className="absolute bottom-3 left-1/2 top-3 w-[3px] -translate-x-1/2 rounded-full bg-white/35" />
+              <span
+                role="slider"
+                aria-label="Milestone year"
+                aria-valuemin={milestones[milestones.length - 1].year}
+                aria-valuemax={milestones[0].year}
+                aria-valuenow={current.year}
+                aria-valuetext={`${current.year} ${current.projectName}`}
+                tabIndex={0}
+                onPointerDown={startDrag}
+                onPointerMove={moveDrag}
+                onPointerUp={endDrag}
+                onPointerCancel={endDrag}
+                onKeyDown={(event) => {
+                  if (event.key === "ArrowDown") {
+                    event.preventDefault();
+                    setIndex((value) => Math.min(milestones.length - 1, value + 1));
+                  }
+                  if (event.key === "ArrowUp") {
+                    event.preventDefault();
+                    setIndex((value) => Math.max(0, value - 1));
+                  }
+                }}
+                style={{ top: dotTop }}
+                className="absolute left-1/2 z-10 h-5 w-5 -translate-x-1/2 -translate-y-1/2 cursor-pointer touch-none rounded-full border-2 border-white bg-[#E7720E] before:absolute before:-inset-3 before:content-['']"
+              />
             </div>
-            <div className="min-w-0 w-full">
-              <div className="font-josefin text-[48px] font-semibold leading-none text-[#E7720E] sm:text-[64px] lg:text-[78px]">{current.year}</div>
-              <div className="mt-3 flex flex-row gap-3 overflow-x-auto pb-2 lg:flex-col lg:gap-1 lg:overflow-x-visible lg:pb-0">
-                {rest.map((item, position) => (
-                  <button
-                    key={`${item.year}-${item.projectName}-${position}`}
-                    onClick={() => setIndex(milestones.indexOf(item))}
-                    className={`shrink-0 font-josefin text-[14px] font-semibold leading-none text-white/70 transition-colors hover:text-[#E7720E] cursor-pointer sm:text-[20px] lg:text-[24px]${position === milestones.length - index - 1 && index > 0 ? " lg:mt-6" : ""}`}
-                  >
-                    {item.year}
-                  </button>
-                ))}
+            <div ref={listRef} className="min-w-0 w-full">
+              <div className="flex flex-col items-center">
+                {milestones.map((item, itemIndex) => {
+                  const selected = itemIndex === index;
+                  return (
+                    <button
+                      key={`${item.year}-${item.projectName}`}
+                      type="button"
+                      data-milestone={itemIndex}
+                      onClick={() => setIndex(itemIndex)}
+                      className={`flex w-full shrink-0 items-center justify-center text-center font-josefin font-semibold leading-none cursor-pointer ${
+                        selected
+                          ? "py-1 text-[52px] text-[#E7720E] sm:text-[64px] lg:text-[78px]"
+                          : "h-8 text-[16px] text-white/70 transition-colors hover:text-[#E7720E] sm:h-9 sm:text-[20px] lg:h-10 lg:text-[24px]"
+                      }`}
+                    >
+                      {item.year}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

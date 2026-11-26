@@ -2,21 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 const completedProjects = [
-  { year: "2009", name: "Regency Garden", location: "Chikhali" },
-  { year: "2010", name: "Indrayani Garden", location: "Bhosari" },
-  { year: "2010", name: "Shivam Residency", location: "Chikhali" },
-  { year: "2010", name: "Satyam Residency", location: "Chikhali" },
-  { year: "2010", name: "Sudaram Residency", location: "Bhosari" },
-  { year: "2011", name: "Regency Heights", location: "Chikhali" },
-  { year: "2012", name: "Sanskruti", location: "Chikhali" },
-  { year: "2013", name: "Kesar Garden", location: "Bhosari" },
-  { year: "2013", name: "Umiya Residency", location: "Bhosari" },
-  { year: "2013", name: "Sanskriti Apartment", location: "Chinchwad" },
-  { year: "2014", name: "Sanskriti Darsan", location: "Chinchwad" },
-  { year: "2015", name: "Sanskriti Heights", location: "Ravet" },
-  { year: "2017", name: "Sanskriti Homes", location: "Bhosari" },
-  { year: "2020", name: "Radhe Harmony", location: "Moshi" },
   { year: "2022", name: "Radhe Regal", location: "Moshi" },
+  { year: "2020", name: "Radhe Harmony", location: "Moshi" },
+  { year: "2017", name: "Sanskriti Homes", location: "Bhosari" },
+  { year: "2015", name: "Sanskriti Heights", location: "Ravet" },
+  { year: "2014", name: "Sanskriti Darsan", location: "Chinchwad" },
+  { year: "2013", name: "Sanskriti Apartment", location: "Chinchwad" },
+  { year: "2013", name: "Umiya Residency", location: "Bhosari" },
+  { year: "2013", name: "Kesar Garden", location: "Bhosari" },
+  { year: "2012", name: "Sanskriti", location: "Chikhali" },
+  { year: "2011", name: "Regency Heights", location: "Chikhali" },
+  { year: "2010", name: "Sudaram Residency", location: "Bhosari" },
+  { year: "2010", name: "Satyam Residency", location: "Chikhali" },
+  { year: "2010", name: "Shivam Residency", location: "Chikhali" },
+  { year: "2010", name: "Indrayani Garden", location: "Bhosari" },
+  { year: "2009", name: "Regency Garden", location: "Chikhali" },
 ];
 
 function YearMark({ year }) {

@@ -90,7 +90,7 @@ export const projects = [
     ["sanskruti-apartment", "Sanskriti Apartment", "Chinchwad"],
     ["umiya-residency", "Umiya Residency", "Bhosari"],
     ["kesar-garden", "Kesar Garden", "Bhosari"],
-    ["sanskruti", "Sanskruti", "Chikhli"],
+    ["sanskruti", "Sanskriti", "Chikhli"],
     ["regency-heights", "Regency Heights", "Chikhli"],
     ["sundaram-residency", "Sundaram Residency", "Bhosari"],
     ["shivam-residency", "Shivam Residency", "Chikhli"],
