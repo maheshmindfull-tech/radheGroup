@@ -68,11 +68,11 @@ export default function Testimonials() {
 
         <div className="mt-10">
           <div className="flex gap-4 lg:gap-6 transition-all duration-500">
-            {visibleVideos.map((videoIndex) => {
+            {visibleVideos.map((videoIndex, position) => {
               const id = videos[videoIndex];
               const isPlaying = playing === videoIndex;
               return (
-                <div key={id} className="flex-1">
+                <div key={id} className={`min-w-0 flex-1 ${position === 1 ? "hidden sm:block" : ""}`}>
                   <div
                     className={`relative w-full rounded-[20px] overflow-hidden cursor-pointer aspect-video ${
                       isPlaying
@@ -136,13 +136,11 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 mt-10 md:hidden">
-          {testimonials.map((item, i) => (
-            <QuoteCard key={item.name} item={item} active={i === active} className="p-6" />
-          ))}
+        <div className="mt-10 lg:hidden">
+          <QuoteCard item={testimonials[active]} active className="p-6" />
         </div>
 
-        <div className="hidden md:flex mt-16 items-center justify-center gap-4 lg:gap-8 relative">
+        <div className="hidden lg:flex mt-16 items-center justify-center gap-4 lg:gap-8 relative">
           {desktopCards.map((cardIndex, position) => {
             const center = position === 1;
             return (
@@ -150,7 +148,7 @@ export default function Testimonials() {
                 key={`${cardIndex}-${position}`}
                 item={testimonials[cardIndex]}
                 active={center}
-                className={`max-w-[320px] lg:max-w-[400px] h-[220px] lg:h-[250px] p-6 lg:p-8 ${
+                className={`min-w-0 max-w-[320px] lg:max-w-[400px] h-auto min-h-[220px] lg:min-h-[250px] p-6 lg:p-8 ${
                   center ? "md:scale-105 lg:scale-110 z-10" : "scale-95 opacity-80"
                 }`}
               />
@@ -158,7 +156,7 @@ export default function Testimonials() {
           })}
         </div>
 
-        <div className="flex justify-center md:justify-end gap-3 mt-8 md:mt-10">
+        <div className="flex justify-center lg:justify-end gap-3 mt-8 md:mt-10">
           <button
             onClick={() => setActive((current) => (current - 1 + total) % total)}
             className="w-10 h-10 border-2 rounded-full flex items-center justify-center hover:bg-gray-600 transition cursor-pointer"

@@ -8,7 +8,7 @@ const beliefs = [
     icon: "/assets/vision-icon.png",
     title: "Vision",
     text: "To be a trusted and enduring name in real estate by creating developments that enhance quality of life while consistently upholding transparency and customer confidence.",
-    image: "/assets/visionImg-DEul7Xp_.png",
+    image: "/assets/visionImg-DEul7Xp_.webp",
   },
   {
     id: "mission",
@@ -16,7 +16,7 @@ const beliefs = [
     icon: "/assets/mission-icon.png",
     title: "Mission",
     text: " To deliver well-planned developments through strategic land selection, disciplined execution, and a customer-centric approach that ensures clarity at every stage.",
-    image: "/assets/missionImg-DSGanyRc.png",
+    image: "/assets/missionImg-DSGanyRc.webp",
   },
   {
     id: "principles",
@@ -24,49 +24,49 @@ const beliefs = [
     icon: "/assets/vision-icon.png",
     title: "Principles",
     text: "Integrity in decisions, precision in execution, and accountability in delivery form the foundation of every Radhe development.",
-    image: "/assets/principalImg-DgX-gSyq.png",
+    image: "/assets/principalImg-DgX-gSyq.webp",
   },
 ];
 
 const olderText =
   "Developed by a team with a successful track record of delivering multiple residential projects, this development is built with a strong focus on quality construction, thoughtful planning, and customer satisfaction. Every stage, from booking to possession, is managed with complete transparency, ensuring a smooth and trustworthy home-buying experience.";
 
-const milestoneImage = "/assets/MilestonesImg-C9BI1EIN.png";
+const milestoneImage = "/assets/MilestonesImg-C9BI1EIN.webp";
 
 const milestones = [
   {
     year: 2030,
     projectName: "RADHE ANANTAM",
     subtitle: "- Wadhmukhwadi",
-    image: "/assets/Project1-1-DvCeZnIO.png",
+    image: "/assets/Project1-1-DvCeZnIO.webp",
     text: "Radhe Anantam Spread across 3 acres, this premium residential project offers spacious 2 & 3 BHK homes designed for comfortable and modern living. With thoughtfully planned layouts and 40+ premium amenities, it ensures a perfect lifestyle for families. Located in a well-connected area, the project provides easy access to schools, hospitals, and daily essentials, while maintaining a peaceful living environment.",
   },
   {
     year: 2027,
     projectName: "RADHE SHLOK",
     subtitle: "- Charholi Budruk",
-    image: "/assets/Project1-2-CqQhMxMk.png",
+    image: "/assets/Project1-2-CqQhMxMk.webp",
     text: "Radhe Shlok is an exclusive low-density residential project in Charholi Budruk, Pune, offering thoughtfully designed 2 & 3 BHK homes. 7 floor construction With limited units, modern amenities, and excellent connectivity, main road at 1 min it provides a peaceful, comfortable, and well-connected lifestyle for modern families.",
   },
   {
     year: 2026,
     projectName: "Radhe Windsun",
     subtitle: "- Chovisawadi",
-    image: "/assets/Project1-3-BjaKVqjV.png",
+    image: "/assets/Project1-3-BjaKVqjV.webp",
     text: "Radhe Windsun is residential project in Charholi Budruk, Pune, offering thoughtfully designed 2, 2.5 & 3 BHK homes within a 14-storey single-tower development spread across 1 acres. Combining modern amenities, quality construction, and a secure living environment ensures a comfortable lifestyle with landscaped spaces and essential facilities, while its strategic location excellent connectivity to Alandi Road, Pune Airport, and key city destinations.",
   },
   {
     year: 2022,
     projectName: "RADHE HARMONY",
     subtitle: "- Moshi alandi road",
-    image: "/assets/Project1-4-BdlrMOJc.png",
+    image: "/assets/Project1-4-BdlrMOJc.webp",
     text: "Radhe Harmony by Radhe Group combines quality construction, contemporary design, and lasting value. Every home is crafted with premium materials for superior comfort, durability, and everyday living. With transparent processes, easy home loan assistance, and dedicated customer support, we make your home-buying journey smooth and stress-free. Trust, quality, and customer satisfaction define every Radhe Group project.",
   },
   {
     year: 2020,
     projectName: "RADHE REGAL",
     subtitle: "- Moshi alandi road",
-    image: "/assets/Project1-5-sao-mOUX.png",
+    image: "/assets/Project1-5-sao-mOUX.webp",
     text: "Radhe Regal Residency by Radhe Group is built with premium quality, modern design, and exceptional craftsmanship. Every home offers lasting comfort, durability, and a refined lifestyle. With transparent processes, easy home loan assistance, and dedicated support, we ensure a seamless home-buying experience. Quality, trust, and customer satisfaction are at the core of everything we create.",
   },
   { year: 2017, projectName: "SANSKRITI HOMES", subtitle: "- Bhosari", image: milestoneImage, text: olderText },
@@ -85,19 +85,19 @@ const milestones = [
 ];
 
 const team = [
-  { name: "Mr. Pravin Patel", role: "Founder", image: "/assets/PravinPatel-CqTA9mJX.png" },
-  { name: "Mr. Amit Patel", role: "Founder", image: "/assets/AmitPatel-D6yN10WK.png" },
-  { name: "Mr. Narendra Patel", role: "Founder", image: "/assets/NarendraPatel-aKYloahq.png" },
+  { name: "Mr. Pravin Patel", role: "Founder", image: "/assets/PravinPatel-CqTA9mJX.webp" },
+  { name: "Mr. Amit Patel", role: "Founder", image: "/assets/AmitPatel-D6yN10WK.webp" },
+  { name: "Mr. Narendra Patel", role: "Founder", image: "/assets/NarendraPatel-aKYloahq.webp" },
 ];
 
-const teamPhotos = ["/assets/Team1-DJ9b41_u.png", "/assets/Team2-kVz6ub5I.png"];
+const teamPhotos = ["/assets/Team1-DJ9b41_u.webp", "/assets/Team2-kVz6ub5I.webp"];
 
 function Hero() {
   return (
     <div className="relative w-full h-[90vh] md:h-screen overflow-hidden">
       <img src="/assets/AboutHero-C3YzdzBk.avif" alt="About Hero" className="absolute w-full h-full object-cover" />
-      <div className="absolute bottom-[-9px] left-30 text-white z-10">
-        <h1 className="text-4xl md:text-[120px] font-semibold leading-none m-0">
+      <div className="absolute bottom-4 left-4 right-4 z-10 text-white sm:bottom-6 sm:left-8 sm:right-8 md:left-12 lg:left-16">
+        <h1 className="m-0 max-w-full text-[clamp(2.25rem,8vw,7.5rem)] font-semibold leading-[0.9]">
           ABOUT <br />
           <span>RADHE GROUP</span>
         </h1>
@@ -115,7 +115,7 @@ function WhoWeAre() {
           <div className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center">
             <img src="/assets/AboutLogo-CFzVpB-L.png" alt="building" className="max-w-full max-h-full object-contain rounded-lg" />
           </div>
-          <div className="text-gray-600 text-xl md:text-xl leading-6 space-y-4 max-w-xl">
+          <div className="text-gray-600 text-base sm:text-lg md:text-xl leading-6 space-y-4 max-w-xl">
             <p>
               <span className="font-semibold text-gray-800">Radhe Group</span> is a respected name in the real estate sector, committed to delivering
               <span className="font-semibold text-gray-800"> high-quality residential and commercial developments</span> that reflect the expectations of modern living. Built on a foundation of trust, transparency, and execution discipline, the group has steadily established itself as a reliable choice for both homebuyers and investors.
@@ -306,7 +306,7 @@ function Association() {
     <section className="bg-white py-16 px-8 md:px-24">
       <div className="w-full flex flex-col md:flex-row items-center gap-12 md:gap-20">
         <div className="w-full md:w-2/5 flex justify-center">
-          <img src="/assets/shruti-fEu8JXCS.png" alt="Shruti Buildcon Logo" className="w-64 md:w-80 h-auto object-contain" />
+          <img src="/assets/shruti-fEu8JXCS.webp" alt="Shruti Buildcon Logo" className="w-64 md:w-80 h-auto object-contain" />
         </div>
         <div className="w-full md:w-3/5">
           <h3 className="text-4xl md:text-5xl font-normal text-[#E67E22] mb-5 leading-tight">

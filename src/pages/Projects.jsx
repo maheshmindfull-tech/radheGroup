@@ -2,24 +2,25 @@ import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Cta from "../components/Cta";
+import CompletedTimeline from "../components/CompletedTimeline";
 
 const projects = [
   {
     title: "Radhe Anantam",
     location: "Wadhmukhwadi",
-    image: "/assets/HomeProject1-DeMDYaZl.png",
+    image: "/assets/HomeProject1-DeMDYaZl.webp",
     slug: "radhe-anantam",
   },
   {
     title: "Radhe Shlok",
     location: "Charholi Budruk",
-    image: "/assets/HomeProject2--SycYWeM.png",
+    image: "/assets/HomeProject2--SycYWeM.webp",
     slug: "radhe-shlok",
   },
   {
     title: "Radhe Windsun",
     location: "Chovisawadi",
-    image: "/assets/HomeProject3-BOetiZdE.png",
+    image: "/assets/HomeProject3-BOetiZdE.webp",
     slug: "radhe-windsun",
   },
 ];
@@ -57,7 +58,7 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHeader title="PROJECTS" />
-      <section className="bg-white py-12 px-6">
+      <section className="bg-white px-4 py-12 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {projects.map((project) => (
@@ -68,11 +69,7 @@ export default function ProjectsPage() {
             <h2 className="text-center font-josefin text-[28px] md:text-[36px] font-bold text-[#E7720E] tracking-widest mb-10">
               COMPLETED PROJECTS
             </h2>
-            <img
-              src="/assets/Completed_Image-Cs8KsV8A.png"
-              alt="Completed Projects"
-              className="w-full rounded-[14px] object-cover"
-            />
+            <CompletedTimeline />
           </div>
         </div>
       </section>

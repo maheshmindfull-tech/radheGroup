@@ -107,7 +107,7 @@ export default function Contact() {
       <PageHeader title="Contact Us" />
       <section className="bg-white py-10 px-4 md:px-10 font-sans">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-8 bg-[#FFEEE0] p-8 md:p-10 rounded-[2.5rem] shadow-sm w-full">
+          <div className="lg:col-span-8 w-full rounded-[2rem] bg-[#FFEEE0] p-5 shadow-sm sm:p-8 md:p-10 sm:rounded-[2.5rem]">
             <h2 className="text-2xl font-bold text-[#2D2D2D] mb-1">Contact Us</h2>
             <p className="text-[#6E6E6E] text-sm mb-8 font-medium">
               Enquire now and take the next step towards your new home.
@@ -301,10 +301,10 @@ export default function Contact() {
                 <div>
                   <h4 className="font-bold text-[#2D2D2D] text-lg">Email Address</h4>
                   <div className="mt-1 space-y-0.5">
-                    <a href="mailto:shrutibuildtechsales@gmail.com" className="block text-[#6E6E6E] text-md hover:opacity-80 transition-opacity">
+                    <a href="mailto:shrutibuildtechsales@gmail.com" className="block break-all text-[#6E6E6E] text-md hover:opacity-80 transition-opacity">
                       shrutibuildtechsales@gmail.com
                     </a>
-                    <a href="mailto:radhegroup30@gmail.com" className="block text-[#6E6E6E] text-md hover:opacity-80 transition-opacity">
+                    <a href="mailto:radhegroup30@gmail.com" className="block break-all text-[#6E6E6E] text-md hover:opacity-80 transition-opacity">
                       radhegroup30@gmail.com
                     </a>
                   </div>

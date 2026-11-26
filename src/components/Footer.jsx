@@ -78,12 +78,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#181200] text-[#a19e95] py-16 px-8 md:px-20 font-sans">
+    <footer className="bg-[#181200] text-[#a19e95] py-12 px-4 font-sans sm:px-8 sm:py-16 md:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           <div className="space-y-6">
             <div className="bg-white w-28 h-28 rounded-full flex items-center justify-center overflow-hidden shadow-lg">
-              <img src="/assets/FooterLogo-BAlfo9ez.png" alt="Radhe Group Logo" className="w-24 h-auto object-contain" />
+              <img src="/assets/FooterLogo-BAlfo9ez.png" alt="Radhe Group" className="w-24 h-auto object-contain" />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
               Radhe Group is a real estate developer focused on creating thoughtfully planned residential and commercial spaces, built on transparency, quality construction, and long-term value.
@@ -147,10 +147,10 @@ export default function Footer() {
                   <path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" />
                 </Icon>
                 <div className="space-y-1">
-                  <a href="mailto:shrutibuildtechsales@gmail.com" className="block hover:text-white">
+                  <a href="mailto:shrutibuildtechsales@gmail.com" className="block break-all hover:text-white">
                     shrutibuildtechsales@gmail.com
                   </a>
-                  <a href="mailto:radhegroup30@gmail.com" className="block hover:text-white">
+                  <a href="mailto:radhegroup30@gmail.com" className="block break-all hover:text-white">
                     radhegroup30@gmail.com
                   </a>
                 </div>
@@ -183,7 +183,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs tracking-wider">
-          <p>© All Copyright 2025 by Mindfull Creative studio</p>
+          <p>© {new Date().getFullYear()} Radhe Group. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="#" className="hover:text-white transition-colors">
               Terms of Use

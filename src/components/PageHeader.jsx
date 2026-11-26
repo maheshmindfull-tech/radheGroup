@@ -1,8 +1,8 @@
 export default function PageHeader({ title }) {
   return (
-    <header className="relative w-full bg-[#260F01] min-h-[200px] md:min-h-[250px] px-4 md:px-10 flex flex-col justify-end overflow-hidden">
+    <header className="relative w-full bg-[#260F01] min-h-[180px] sm:min-h-[220px] md:min-h-[280px] px-4 sm:px-8 md:px-10 pt-28 pb-6 sm:pt-32 sm:pb-8 flex flex-col justify-end overflow-hidden">
       <div className="max-w-7xl w-full mx-auto">
-        <h1 className="text-white text-4xl sm:text-6xl md:text-8xl lg:text-[120px] font-bold leading-[0.5] sm:leading-[0.5] md:leading-[0.4] lg:leading-[0.5] tracking-tight uppercase">
+        <h1 className="text-white text-[clamp(2.4rem,10vw,7.5rem)] font-bold leading-[0.9] tracking-tight uppercase break-words">
           {title}
         </h1>
       </div>

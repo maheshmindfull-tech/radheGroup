@@ -20,7 +20,7 @@ export default function Faq() {
           <div className="w-full lg:w-[420px] flex-shrink-0">
             <div className="rounded-[20px] overflow-hidden relative">
               <img
-                src="/assets/faq-DB4UuvkV.png"
+                src="/assets/faq-DB4UuvkV.webp"
                 alt="faq"
                 className="w-full h-[280px] sm:h-[380px] md:h-[450px] lg:h-[500px] object-cover"
               />

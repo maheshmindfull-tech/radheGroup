@@ -20,7 +20,7 @@ const sport = "/assets/sportArea-C7cNE3ql.png";
 const club = "/assets/amenity-clubhouse.png";
 const path = "/assets/GardenPath-CyRPncjC.png";
 
-const group = "/assets/Group-DCcfz6CG.png";
+const group = "/assets/Group-DCcfz6CG.webp";
 
 export const projects = [
   {
@@ -29,13 +29,13 @@ export const projects = [
     name: "Radhe Anantam",
     location: "Wadhmukhwadi",
     status: "Ongoing",
-    banner: "/assets/banner11-DtQlLcAU.png",
-    project: "/assets/Project1-1-DvCeZnIO.png",
+    banner: "/assets/banner11-DtQlLcAU.webp",
+    project: "/assets/Project1-1-DvCeZnIO.webp",
     logo: "/assets/ProjectLogo-CICDRvan.png",
     isDetailed: true,
     gallery: [11, 12, 13, 14, 15, 16, 17].map((n, index) => ({
       id: index + 1,
-      src: `/assets/${["p11-DM9KHbon", "p12-DSJNVeJo", "p13-BWHSZSEe", "p14-DR8iiRNm", "p15-DS8K1Dmm", "p16-Xjal2VNa", "p17-CX7VfBYD"][index]}.png`,
+      src: `/assets/${["p11-DM9KHbon", "p12-DSJNVeJo", "p13-BWHSZSEe", "p14-DR8iiRNm", "p15-DS8K1Dmm", "p16-Xjal2VNa", "p17-CX7VfBYD"][index]}.webp`,
       alt: `Anantam ${index + 1}`,
     })),
   },
@@ -45,8 +45,8 @@ export const projects = [
     name: "Radhe Shlok",
     location: "Charholi Budruk",
     status: "Ongoing",
-    banner: "/assets/banner3-zMIRzodd.png",
-    project: "/assets/Project1-2-CqQhMxMk.png",
+    banner: "/assets/banner3-zMIRzodd.webp",
+    project: "/assets/Project1-2-CqQhMxMk.webp",
     logo: "/assets/ProjectLogo-CICDRvan.png",
     isDetailed: true,
   },
@@ -56,7 +56,7 @@ export const projects = [
     name: "Radhe Windsun",
     location: "Chovisawadi",
     status: "Ongoing",
-    banner: "/assets/fatherAndDaugther-BxcTPJft.png",
+    banner: "/assets/fatherAndDaugther-BxcTPJft.webp",
     project: group,
     logo: "/assets/ProjectLogo-CICDRvan.png",
     isDetailed: true,
@@ -67,8 +67,8 @@ export const projects = [
     name: "Radhe Harmony",
     location: "Moshi alandi road",
     status: "Completed",
-    banner: "/assets/Pankh-FDYaXq2E.png",
-    project: "/assets/Project1-4-BdlrMOJc.png",
+    banner: "/assets/Pankh-FDYaXq2E.webp",
+    project: "/assets/Project1-4-BdlrMOJc.webp",
     logo: "/assets/ProjectLogo-CICDRvan.png",
     isDetailed: true,
   },
@@ -78,8 +78,8 @@ export const projects = [
     name: "Radhe Regal",
     location: "Moshi alandi road",
     status: "Completed",
-    banner: "/assets/banner3-zMIRzodd.png",
-    project: "/assets/Project1-5-sao-mOUX.png",
+    banner: "/assets/banner3-zMIRzodd.webp",
+    project: "/assets/Project1-5-sao-mOUX.webp",
     logo: "/assets/ProjectLogo-CICDRvan.png",
     isDetailed: true,
   },
@@ -116,8 +116,8 @@ export const heroTaglines = {
 };
 
 export const aboutImages = {
-  "radhe-regal": "/assets/image%2032-G8DmFdk_.png",
-  "radhe-shlok": "/assets/About-mC8SVI2k.png",
+  "radhe-regal": "/assets/image%2032-G8DmFdk_.webp",
+  "radhe-shlok": "/assets/About-mC8SVI2k.webp",
 };
 
 export const aboutCopy = {
@@ -347,21 +347,21 @@ export const planCopy = {
 
 export const plans = {
   "radhe-windsun": [
-    { label: "2BHK", image: "/assets/layout-AR7yspgL.png" },
-    { label: "3BHK", image: "/assets/RW3BHK-DUauOhFc.png" },
+    { label: "2BHK", image: "/assets/layout-AR7yspgL.webp" },
+    { label: "3BHK", image: "/assets/RW3BHK-DUauOhFc.webp" },
   ],
   "radhe-harmony": [
-    { label: "1BHK", image: "/assets/RH1BHK-9TIUXwBW.png" },
-    { label: "2BHK", image: "/assets/RH2BHK-5IFLOmRO.png" },
+    { label: "1BHK", image: "/assets/RH1BHK-9TIUXwBW.webp" },
+    { label: "2BHK", image: "/assets/RH2BHK-5IFLOmRO.webp" },
   ],
   "radhe-anantam": [
-    { label: "2BHK", image: "/assets/Anantam2BHK-DoPh3vFL.png" },
-    { label: "3BHK", image: "/assets/Anantam3BHK-Bxh3SZAv.png" },
+    { label: "2BHK", image: "/assets/Anantam2BHK-DoPh3vFL.webp" },
+    { label: "3BHK", image: "/assets/Anantam3BHK-Bxh3SZAv.webp" },
   ],
   "radhe-shlok": [
-    { label: "1st Floor", image: "/assets/1st%20floor-CVkIYpYG.png" },
-    { label: "2nd Floor", image: "/assets/2nd%20floor-DG3kMAKv.png" },
-    { label: "3rd Floor to 7th Floor", image: "/assets/3rd%20floor-e77uRC0L.png" },
+    { label: "1st Floor", image: "/assets/1st%20floor-CVkIYpYG.webp" },
+    { label: "2nd Floor", image: "/assets/2nd%20floor-DG3kMAKv.webp" },
+    { label: "3rd Floor to 7th Floor", image: "/assets/3rd%20floor-e77uRC0L.webp" },
   ],
 };
 
@@ -378,22 +378,22 @@ export const brochures = {
 export const galleries = {
   "radhe-windsun": ["WidsonImg1-zQm5MIUA", "WidsonImg2-W64qrdSK", "WidsonImg3-g7dsrKxh", "WidsonImg4-rVNo8lUX", "WidsonImg7-CmXt68Oy", "WidsonImg6-5NO-iCxv", "WidsonImg5-CUjAglI9"].map((file, index) => ({
     id: [1, 2, 3, 4, 7, 6, 5][index],
-    src: `/assets/${file}.png`,
+    src: `/assets/${file}.webp`,
     alt: `Windsun ${[1, 2, 3, 4, 7, 6, 5][index]}`,
   })),
   "radhe-harmony": [1, 2, 3, 4].map((id) => ({
     id,
-    src: `/assets/${["Harmony1-on69M8Zb", "Harmony2-CIX8Smu3", "Harmony3-CxjKFkLf", "Harmony4-BP7L2EaO"][id - 1]}.png`,
+    src: `/assets/${["Harmony1-on69M8Zb", "Harmony2-CIX8Smu3", "Harmony3-CxjKFkLf", "Harmony4-BP7L2EaO"][id - 1]}.webp`,
     alt: `Harmony ${id}`,
   })),
   "radhe-regal": [1, 2, 3, 4].map((id) => ({
     id,
-    src: `/assets/${["regal1-D2-k6RxP", "regal2-RMO9U6gO", "regal3-Uw2aXCPm", "regal4-DTLMyZq2"][id - 1]}.png`,
+    src: `/assets/${["regal1-D2-k6RxP", "regal2-RMO9U6gO", "regal3-Uw2aXCPm", "regal4-DTLMyZq2"][id - 1]}.webp`,
     alt: `Regal ${id}`,
   })),
   "radhe-shlok": [1, 2, 3, 4].map((id) => ({
     id,
-    src: `/assets/${["shlok1-BXarQmKX", "shlok2-5_0E-HEp", "shlok3-i2Fvi6Ce", "shlok4-5UT_lJxP"][id - 1]}.png`,
+    src: `/assets/${["shlok1-BXarQmKX", "shlok2-5_0E-HEp", "shlok3-i2Fvi6Ce", "shlok4-5UT_lJxP"][id - 1]}.webp`,
     alt: `Shlok ${id}`,
   })),
 };
@@ -498,7 +498,7 @@ export const locations = {
     data: [
       places("Shopping Malls / Multiplexes", [["Phoenix Market City", "25 mins"], ["Reliance Smart", "08 mins"], ["D-Mart Charholi", "10 mins"], ["City One Mall", "22 mins"], ["PVR Cinemas", "25 mins"]]),
       places("Work Spaces", [["EON IT Park", "22 mins"], ["World Trade Center", "20 mins"], ["Chakan MIDC", "25 mins"], ["Talawade IT Park", "20 mins"], ["Bhosari MIDC", "18 mins"]]),
-      places("Hospitals", [["Lifeline Hospital", "10 mins"], ["Orchid Hospital", "15 mins"], ["Aditya Birla Hospital", "28 mins"], ["Aditya Birla Hospital", "20 mins"], ["Sant Dnyaneshwar Hospital", "12 mins"]]),
+      places("Hospitals", [["Lifeline Hospital", "10 mins"], ["Orchid Hospital", "15 mins"], ["Aditya Birla Hospital", "28 mins"], ["Sant Dnyaneshwar Hospital", "12 mins"]]),
       places("Important Destinations", [["Charholi Phata", "03 mins"], ["Pune Airport", "18 mins"], ["Vishrantwadi", "15 mins"], ["Alandi", "12 mins"], ["Pune Railway Station", "30 mins"]]),
     ],
   },
@@ -507,7 +507,7 @@ export const locations = {
     data: [
       places("Shopping Malls / Multiplexes", [["Phoenix Market City", "25 mins"], ["Reliance Smart", "08 mins"], ["D-Mart Charholi", "10 mins"], ["City One Mall", "22 mins"], ["PVR Cinemas", "25 mins"]]),
       places("Work Spaces", [["EON IT Park", "22 mins"], ["World Trade Center", "20 mins"], ["Chakan MIDC", "25 mins"], ["Talawade IT Park", "20 mins"], ["Bhosari MIDC", "18 mins"]]),
-      places("Hospitals", [["Lifeline Hospital", "10 mins"], ["Orchid Hospital", "15 mins"], ["Aditya Birla Hospital", "28 mins"], ["Aditya Birla Hospital", "20 mins"], ["Sant Dnyaneshwar Hospital", "12 mins"]]),
+      places("Hospitals", [["Lifeline Hospital", "10 mins"], ["Orchid Hospital", "15 mins"], ["Aditya Birla Hospital", "28 mins"], ["Sant Dnyaneshwar Hospital", "12 mins"]]),
       places("Important Destinations", [["Charholi Phata", "03 mins"], ["Pune Airport", "18 mins"], ["Vishrantwadi", "15 mins"], ["Alandi", "12 mins"], ["Pune Railway Station", "30 mins"]]),
     ],
   },

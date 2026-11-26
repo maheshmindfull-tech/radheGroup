@@ -7,31 +7,24 @@ function Panel({ item, index, active, onActivate, mobile = false }) {
 
   if (mobile) {
     return (
-      <div
-        onClick={() => onActivate(index)}
-        className={`relative cursor-pointer transition-all duration-500 ease-in-out flex-shrink-0 ${
-          open ? "w-[220px]" : "w-[65px]"
-        } border-l-2 border-gray-700/70 flex items-center`}
-      >
-        {open ? (
-          <div className="absolute inset-0 p-3 flex flex-col justify-end">
-            <div className="rounded-2xl overflow-hidden h-[280px]">
-              <img src={item.image} alt="" className="w-full h-full object-cover" />
+      <div className="border-b border-white/15">
+        <button
+          type="button"
+          onClick={() => onActivate(index)}
+          className="flex w-full items-center gap-4 py-4 text-left"
+          aria-expanded={open}
+        >
+          <span className="w-8 shrink-0 text-[18px] font-medium text-white/80">{number}</span>
+          <span className="min-w-0 flex-1 text-[18px] font-medium">{item.title}</span>
+          <span className="text-xl text-white/70">{open ? "−" : "+"}</span>
+        </button>
+        {open && (
+          <div className="pb-5 sm:pl-12">
+            <div className="h-48 overflow-hidden rounded-2xl sm:h-64">
+              <img src={item.image} alt="" className="h-full w-full object-cover" />
             </div>
-            <div className="mt-4 flex gap-3 items-center">
-              <span className="text-[24px] font-semibold leading-none">{number}</span>
-              <p className="text-[12px] leading-[1.4] max-w-[140px]">{item.description || expertiseFallback}</p>
-            </div>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/80">{item.description || expertiseFallback}</p>
           </div>
-        ) : (
-          <>
-            <span className="absolute top-4 left-1/2 -translate-x-1/2 text-[22px]">{number}</span>
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 h-[220px] flex items-end justify-center">
-              <span className="[writing-mode:vertical-rl] rotate-180 whitespace-nowrap text-[20px] font-medium leading-none">
-                {item.title}
-              </span>
-            </div>
-          </>
         )}
       </div>
     );
@@ -42,9 +35,9 @@ function Panel({ item, index, active, onActivate, mobile = false }) {
       onMouseEnter={() => onActivate(index)}
       className="relative cursor-pointer border-l-2 border-gray-700/70 flex items-center overflow-hidden"
       style={{
-        flex: open ? "0 0 330px" : "1",
-        minWidth: open ? "330px" : "60px",
-        transition: "flex 700ms cubic-bezier(0.4,0,0.2,1), min-width 700ms cubic-bezier(0.4,0,0.2,1)",
+        flex: open ? "2.6 1 0%" : "0.55 1 0%",
+        minWidth: 0,
+        transition: "flex 700ms cubic-bezier(0.4,0,0.2,1)",
       }}
     >
       <div
@@ -98,7 +91,7 @@ export default function Expertise() {
           </p>
         </div>
 
-        <div className="flex md:hidden h-[420px] overflow-x-auto scrollbar-hide">
+        <div className="flex flex-col md:hidden">
           {expertise.map((item, index) => (
             <Panel key={item.title} item={item} index={index} active={active} onActivate={setActive} mobile />
           ))}

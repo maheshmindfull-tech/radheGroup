@@ -5,7 +5,7 @@ import PageHeader from "../components/PageHeader";
 const posts = [
   {
     id: 1,
-    image: "/assets/Blog1-Dj7dVyUK.png",
+    image: "/assets/Blog1-Dj7dVyUK.webp",
     title: "Certified Expert Guidance Certified Expert Guidance",
     description:
       "Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.",
@@ -14,7 +14,7 @@ const posts = [
   },
   {
     id: 2,
-    image: "/assets/Blog2-Bi8Jpe_W.png",
+    image: "/assets/Blog2-Bi8Jpe_W.webp",
     title: "Certified Expert Guidance Certified Expert Guidance",
     description:
       "Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.",
@@ -23,7 +23,7 @@ const posts = [
   },
   {
     id: 3,
-    image: "/assets/Blog3-CzJpTm1F.png",
+    image: "/assets/Blog3-CzJpTm1F.webp",
     title: "Certified Expert Guidance Certified Expert Guidance",
     description:
       "Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.",
@@ -32,7 +32,7 @@ const posts = [
   },
   {
     id: 4,
-    image: "/assets/Blog1-Dj7dVyUK.png",
+    image: "/assets/Blog1-Dj7dVyUK.webp",
     title: "Certified Expert Guidance Certified Expert Guidance",
     description:
       "Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.",
@@ -41,7 +41,7 @@ const posts = [
   },
   {
     id: 5,
-    image: "/assets/Blog3-CzJpTm1F.png",
+    image: "/assets/Blog3-CzJpTm1F.webp",
     title: "Certified Expert Guidance Certified Expert Guidance",
     description:
       "Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.Our team of certified IT professionals provides expert advice to help you choose the right technology solutions for your business needs.",
@@ -56,7 +56,7 @@ export default function Blogs() {
   return (
     <>
       <PageHeader title="Blogs" />
-      <section className="bg-white py-12 px-6 md:px-20 lg:px-40">
+      <section className="bg-white px-4 py-12 sm:px-6 md:px-12 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-[#E67E22] text-3xl font-medium mb-10">Latest Posts</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

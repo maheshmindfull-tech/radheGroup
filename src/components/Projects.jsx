@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "../data";
+import CompletedTimeline from "./CompletedTimeline";
 
 const filters = ["Ongoing", "Completed"];
 
@@ -11,8 +12,8 @@ export default function Projects() {
   const visible = projects.filter((project) => project.status === filter);
 
   return (
-    <section className="bg-white py-15 px-6">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="bg-white px-4 py-12 sm:px-6 sm:py-15">
+      <div className="mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
           <div>
             <h2 className="font-josefin font-normal text-[30px] md:text-[53px] leading-[1] text-[#E7720E]">
@@ -22,16 +23,16 @@ export default function Projects() {
               Explore thoughtfully developed spaces designed for modern living.
             </p>
           </div>
-          <div className="flex mt-6 md:mt-0 items-center">
+          <div className="mt-6 flex max-w-full items-center md:mt-0">
             {filters.map((name, i) => (
               <button
                 key={name}
                 onClick={() => setFilter(name)}
-                className={`relative px-9 py-3 text-sm font-josefin rounded-full border transition-all duration-300 cursor-pointer ${
+                className={`relative rounded-full border px-5 py-2.5 text-sm font-josefin transition-all duration-300 cursor-pointer sm:px-9 sm:py-3 ${
                   filter === name
                     ? "bg-[#E7720E] text-white border-[#E7720E] z-20"
                     : "bg-white text-[#E7720E] border-[#E7720E] z-10"
-                } ${i === 0 ? "" : "-ml-8"}`}
+                } ${i === 0 ? "" : "-ml-4 sm:-ml-8"}`}
               >
                 {name}
               </button>
@@ -40,11 +41,7 @@ export default function Projects() {
         </div>
 
         {filter === "Completed" ? (
-          <img
-            src="/assets/Completed_Image-Cs8KsV8A.png"
-            alt="Completed Projects"
-            className="w-full rounded-[14px] object-cover"
-          />
+          <CompletedTimeline />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {visible.map((project) => (

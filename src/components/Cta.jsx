@@ -9,17 +9,17 @@ export default function Cta({
   const navigate = useNavigate();
 
   return (
-    <section className={`relative h-[500px] md:h-[600px] w-full flex items-center justify-center overflow-hidden font-sans mb-10 ${className}`}>
+    <section className={`relative flex min-h-[420px] w-full items-center justify-center overflow-hidden py-16 font-sans mb-10 md:min-h-[560px] ${className}`}>
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url(/assets/bgImg-lqcidsIT.png)",
+          backgroundImage: "url(/assets/bgImg-lqcidsIT.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       />
       <div className="relative z-10 text-center px-6 max-w-5xl">
-        <h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight uppercase whitespace-pre-line mb-4 drop-shadow-md">
+        <h2 className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight uppercase whitespace-pre-line mb-4 drop-shadow-md">
           {title}
         </h2>
         <p className="text-white text-sm md:text-lg font-light opacity-90 mb-8 max-w-2xl mx-auto drop-shadow-sm">

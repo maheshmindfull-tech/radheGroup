@@ -109,19 +109,19 @@ function Hero({ project }) {
   return (
     <section className="relative w-full overflow-hidden bg-[#2f2f2f]">
       <div className="mx-auto w-full">
-        <p className="absolute left-4 top-4 z-20 font-josefin text-[18px] font-semibold text-white/45 md:left-8 md:text-[22px] lg:left-10">
+        <p className="absolute left-4 top-24 z-20 max-w-[70%] font-josefin text-[16px] font-semibold text-white/70 sm:top-28 sm:text-[18px] md:left-8 md:text-[22px] lg:left-10">
           {project.name}
         </p>
         <div className="relative h-screen min-h-[420px] w-full overflow-hidden bg-black">
           <img src={project.project} alt={project.name} className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
-          <div className="absolute bottom-10 left-7 z-10 text-white sm:left-12 md:bottom-14 md:left-16 lg:left-20">
-            <img src={project.logo} alt={`${project.name} logo`} className="mb-3 w-[110px] object-contain sm:w-[135px] md:w-[155px]" />
-            <h1 className="font-josefin text-[44px] font-semibold leading-[0.95] text-white sm:text-[62px] md:text-[78px] lg:text-[92px]">
+          <div className="absolute bottom-8 left-4 right-4 z-10 text-white sm:left-10 sm:right-10 md:bottom-14 md:left-16 lg:left-20 lg:right-24">
+            <img src={project.logo} alt={`${project.name} logo`} className="mb-3 w-[92px] object-contain sm:w-[135px] md:w-[155px]" />
+            <h1 className="max-w-full font-josefin text-[clamp(2rem,8vw,5.75rem)] font-semibold leading-[0.95] text-white">
               {project.name}
             </h1>
-            <p className="mt-2 font-josefin text-[15px] font-normal uppercase leading-tight tracking-[0.04em] text-white sm:text-[20px] md:text-[24px]">
+            <p className="mt-2 max-w-xl font-josefin text-[14px] font-normal uppercase leading-tight tracking-[0.04em] text-white sm:text-[20px] md:text-[24px]">
               {tagline}
             </p>
           </div>
@@ -145,12 +145,12 @@ function About({ project }) {
   if (project.slug === "radhe-anantam") {
     return (
       <section className="w-full py-10 md:py-20 overflow-hidden">
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="relative flex items-center w-full">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center px-4 md:px-8">
+          <div className="relative flex w-full items-center justify-center">
             <div className="absolute top-[20%] left-0 w-[60%] h-[45%] z-0" />
             <img src={image} alt={project.name} className="relative z-10 object-contain w-full max-w-[320px] sm:max-w-[420px] md:max-w-[600px]" />
           </div>
-          <div className="px-6 md:px-0 md:pr-20">
+          <div className="md:pr-12 lg:pr-20">
             <h2 className="text-3xl md:text-4xl font-semibold text-[#E7720E] leading-tight mb-6">{copy.heading}</h2>
             <p className="text-gray-600 text-base leading-relaxed mb-5">
               <span className="font-semibold text-gray-800">{project.name}</span> {copy.para1}
@@ -163,7 +163,7 @@ function About({ project }) {
   }
 
   return (
-    <section className="w-full py-20 px-6 md:px-20">
+    <section className="w-full px-4 py-12 sm:px-6 md:px-12 md:py-20 lg:px-20">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="flex justify-center relative overflow-hidden">
           <img
@@ -389,7 +389,7 @@ function FloorPlans({ project }) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
           onClick={() => state !== "sending" && close()}
         >
-          <div className="bg-[#f5e6d8] rounded-2xl p-8 w-[320px] shadow-2xl relative" onClick={(event) => event.stopPropagation()}>
+          <div className="relative w-full max-w-[360px] rounded-2xl bg-[#f5e6d8] p-5 shadow-2xl sm:p-8" onClick={(event) => event.stopPropagation()}>
             <button
               type="button"
               onClick={() => state !== "sending" && close()}
@@ -559,10 +559,10 @@ function Location({ project }) {
             <h4 className="font-bold text-[#062E2C] mb-4 border-b pb-2 inline-block">{group.category}</h4>
             <ul className="space-y-3">
               {group.items.map((item) => (
-                <li key={`${item.name}-${item.time}`} className="flex items-end justify-between">
-                  <span className="text-[#062E2C] text-sm whitespace-nowrap">{item.name}</span>
-                  <div className="flex-grow border-b border-dotted border-gray-400 mx-2 mb-1" />
-                  <span className="text-[#062E2C] text-sm font-medium whitespace-nowrap">{item.time}</span>
+                <li key={`${item.name}-${item.time}`} className="flex items-end justify-between gap-2">
+                  <span className="min-w-0 text-sm text-[#062E2C]">{item.name}</span>
+                  <div className="mb-1 min-w-4 flex-1 border-b border-dotted border-gray-400" />
+                  <span className="shrink-0 text-sm font-medium text-[#062E2C]">{item.time}</span>
                 </li>
               ))}
             </ul>

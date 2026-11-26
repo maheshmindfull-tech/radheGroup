@@ -4,32 +4,32 @@ import PageHeader from "../components/PageHeader";
 const filters = ["ALL", "Videos", "Images"];
 
 const images = [
-  "/assets/p11-DM9KHbon.png",
-  "/assets/p12-DSJNVeJo.png",
-  "/assets/p13-BWHSZSEe.png",
-  "/assets/p14-DR8iiRNm.png",
-  "/assets/p15-DS8K1Dmm.png",
-  "/assets/p16-Xjal2VNa.png",
-  "/assets/p17-CX7VfBYD.png",
-  "/assets/shlok1-BXarQmKX.png",
-  "/assets/shlok2-5_0E-HEp.png",
-  "/assets/shlok3-i2Fvi6Ce.png",
-  "/assets/shlok4-5UT_lJxP.png",
-  "/assets/WidsonImg1-zQm5MIUA.png",
-  "/assets/WidsonImg2-W64qrdSK.png",
-  "/assets/WidsonImg3-g7dsrKxh.png",
-  "/assets/WidsonImg4-rVNo8lUX.png",
-  "/assets/WidsonImg7-CmXt68Oy.png",
-  "/assets/WidsonImg6-5NO-iCxv.png",
-  "/assets/WidsonImg5-CUjAglI9.png",
-  "/assets/Harmony1-on69M8Zb.png",
-  "/assets/Harmony2-CIX8Smu3.png",
-  "/assets/Harmony3-CxjKFkLf.png",
-  "/assets/Harmony4-BP7L2EaO.png",
-  "/assets/regal1-D2-k6RxP.png",
-  "/assets/regal2-RMO9U6gO.png",
-  "/assets/regal3-Uw2aXCPm.png",
-  "/assets/regal4-DTLMyZq2.png",
+  "/assets/p11-DM9KHbon.webp",
+  "/assets/p12-DSJNVeJo.webp",
+  "/assets/p13-BWHSZSEe.webp",
+  "/assets/p14-DR8iiRNm.webp",
+  "/assets/p15-DS8K1Dmm.webp",
+  "/assets/p16-Xjal2VNa.webp",
+  "/assets/p17-CX7VfBYD.webp",
+  "/assets/shlok1-BXarQmKX.webp",
+  "/assets/shlok2-5_0E-HEp.webp",
+  "/assets/shlok3-i2Fvi6Ce.webp",
+  "/assets/shlok4-5UT_lJxP.webp",
+  "/assets/WidsonImg1-zQm5MIUA.webp",
+  "/assets/WidsonImg2-W64qrdSK.webp",
+  "/assets/WidsonImg3-g7dsrKxh.webp",
+  "/assets/WidsonImg4-rVNo8lUX.webp",
+  "/assets/WidsonImg7-CmXt68Oy.webp",
+  "/assets/WidsonImg6-5NO-iCxv.webp",
+  "/assets/WidsonImg5-CUjAglI9.webp",
+  "/assets/Harmony1-on69M8Zb.webp",
+  "/assets/Harmony2-CIX8Smu3.webp",
+  "/assets/Harmony3-CxjKFkLf.webp",
+  "/assets/Harmony4-BP7L2EaO.webp",
+  "/assets/regal1-D2-k6RxP.webp",
+  "/assets/regal2-RMO9U6gO.webp",
+  "/assets/regal3-Uw2aXCPm.webp",
+  "/assets/regal4-DTLMyZq2.webp",
 ];
 
 const items = images.map((image, index) => ({
@@ -57,16 +57,16 @@ export default function Gallery() {
                 A visual glimpse into the spaces, design, and lifestyle of Radha Group developments.
               </p>
             </div>
-            <div className="flex mt-6 md:mt-0 items-center">
-              {filters.map((name) => (
+            <div className="mt-6 flex max-w-full flex-wrap items-center md:mt-0">
+              {filters.map((name, i) => (
                 <button
                   key={name}
                   onClick={() => setFilter(name)}
-                  className={`relative px-9 py-3 text-sm font-josefin rounded-full border transition-all duration-300 cursor-pointer ${
+                  className={`relative rounded-full border px-5 py-2.5 text-sm font-josefin transition-all duration-300 cursor-pointer sm:px-9 sm:py-3 ${
                     filter === name
                       ? "bg-[#E7720E] text-white border-[#E7720E] z-20"
                       : "bg-white text-[#E7720E] border-[#E7720E] z-10"
-                  } ${name === 0 ? "" : "-ml-8"}`}
+                  } ${i === 0 ? "" : "-ml-4 sm:-ml-8"}`}
                 >
                   {name}
                 </button>
@@ -114,7 +114,7 @@ export default function Gallery() {
             ×
           </button>
           <button
-            className="absolute left-4 text-white text-7xl font-light z-10 hover:text-[#E7720E] select-none"
+            className="absolute left-2 z-10 select-none text-5xl font-light text-white hover:text-[#E7720E] sm:left-4 sm:text-7xl"
             onClick={(event) => {
               event.stopPropagation();
               showPrevious();
@@ -130,7 +130,7 @@ export default function Gallery() {
             onClick={(event) => event.stopPropagation()}
           />
           <button
-            className="absolute right-4 text-white text-7xl font-light z-10 hover:text-[#E7720E] select-none"
+            className="absolute right-2 z-10 select-none text-5xl font-light text-white hover:text-[#E7720E] sm:right-4 sm:text-7xl"
             onClick={(event) => {
               event.stopPropagation();
               showNext();

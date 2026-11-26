@@ -9,7 +9,7 @@ export default function ProjectDefault() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      <img src="/assets/defaultProject-D7awZce2.png" alt={project.name} className="absolute inset-0 w-full h-full object-cover" />
+      <img src="/assets/defaultProject-D7awZce2.webp" alt={project.name} className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-20 pb-20 text-white">
         {project.logo && <img src="/assets/defaultLogo-Dm9RMUSN.png" alt={project.name} className="w-48 h-auto object-contain mb-4" />}
